@@ -5,8 +5,13 @@ app = Flask(__name__)
 
 @app.get("/")
 def index():
-    return render_template("index.html")
+    chestii = ["ala", "bala", "portocala"]
+    return render_template("index.html", chestii=chestii)
 
+
+@app.get("/chestie/<int:id>")
+def chestie(id):
+    return jsonify({ "mesaj": f"Asta e chestia numarul {id}" })
 
 @app.post("/")
 def poster():
